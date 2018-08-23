@@ -14,20 +14,20 @@ public class CrptController {
     private final AtomicLong counter = new AtomicLong();
 
     @PostMapping("/postcrypt")
-    public Message crypt(@RequestParam(value="message", defaultValue="Hello World") String message, @RequestParam(value="key", defaultValue="12345") String key) {
+    public CryptedMessage crypt(@RequestParam(value="message", defaultValue="Hello World") String message, @RequestParam(value="key", defaultValue="12345") String key) {
         
     	message = message + key;
     	
-    	return new Message(counter.incrementAndGet(), message);
+    	return new CryptedMessage(message);
     }
     
     
     @GetMapping("/crypt")
-    public Message cryptGet(@RequestParam(value="message", defaultValue="Hello World") String message, @RequestParam(value="key", defaultValue="12345") String key) {
+    public CryptedMessage cryptGet(@RequestParam(value="message", defaultValue="Hello World") String message, @RequestParam(value="key", defaultValue="12345") String key) {
         
-    	message = key + message + key;
+    	message = key + message;
     	
-    	return new Message(counter.incrementAndGet(), message);
+    	return new CryptedMessage(message);
     }
     
  

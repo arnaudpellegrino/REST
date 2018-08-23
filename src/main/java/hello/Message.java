@@ -2,32 +2,33 @@ package hello;
 
 public class Message {
 
-    private long id;
     private String message;
+    private String key;
     
     
-    public Message(long id, String message) {
+    
+    
+	public Message(String message, String key) {
 		super();
-		this.id = id;
 		this.message = message;
+		this.key = key;
 	}
+	
 	
 	public String getMessage() {
 		return message;
 	}
-	
 	public void setMessage(String message) {
 		this.message = message;
 	}
+	public String getKey() {
+		return key;
+	}
+	public void setKey(String key) {
+		this.key = key;
+	}
+  
 	
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
-
     
-   
+    
 }
